@@ -48,6 +48,11 @@ print(calculate_error(1, -1, (3, 3)))
 #the point (3, 3) should be 5 units away from the line y = -x + 1:
 print(calculate_error(-1, 1, (3, 3)))
 
+# 0
+# 1
+# 1
+# 5
+
 # Great! Reggie's datasets will be sets of points. For example, he ran an experiment comparing the width of bouncy balls to how high they bounce:
 
 
@@ -78,6 +83,39 @@ print(calculate_all_error(1, 1, datapoints))
 
 #every point in this dataset is 1 unit away from y = x - 1, so the total error should be 4:
 datapoints = [(1, 1), (3, 3), (5, 5), (-1, -1)]
+print(calculate_all_error(1, -1, datapoints))
+
+
+#the points in this dataset are 1, 5, 9, and 3 units away from y = -x + 1, respectively, so total error should be
+# 1 + 5 + 9 + 3 = 18
+datapoints = [(1, 1), (3, 3), (5, 5), (-1, -1)]
+print(calculate_all_error(-1, 1, datapoints))
+
+
+
+
+
+#every point in this dataset lies upon y=x, so the total error should be zero:
+datapoints = [(1, 1), (3, 3), (5, 5), (-1, -1)]
+print(calculate_all_error(1, 0, datapoints))
+
+#every point in this dataset is 1 unit away from y = x + 1, so the total error should be 4:
+datapoints = [(1, 1), (3, 3), (5, 5), (-1, -1)]
+print(calculate_all_error(1, 1, datapoints))
+
+#every point in this dataset is 1 unit away from y = x - 1, so the total error should be 4:
+datapoints = [(1, 1), (3, 3), (5, 5), (-1, -1)]
+print(calculate_all_error(1, -1, datapoints))
+
+
+#the points in this dataset are 1, 5, 9, and 3 units away from y = -x + 1, respectively, so total error should be
+# 1 + 5 + 9 + 3 = 18
+datapoints = [(1, 1), (3, 3), (5, 5), (-1, -1)]
+print(calculate_all_error(-1, 1, datapoints))
+# 0
+# 4
+# 4
+# 18
 
 # Great! It looks like we now have a function that can take in a line and Reggie's data and return how much error that line produces when we try to fit it to the data.
 
@@ -124,6 +162,13 @@ for m in possible_ms:
    	 error = calculate_all_error(m, b, datapoints)
    	 if error < smallest_error:
    		 best_m = m
+   		 best_b = b
+   		 smallest_error = error
+       	 
+print(best_m, best_b, smallest_error)
+
+# 0.30000000000000004 1.7000000000000002 4.999999999999999
+
 
 # Part 3: What does our model predict?
 # Now we have seen that for this set of observations on the bouncy balls, the line that fits the data best has an m of 0.3 and a b of 1.7:
@@ -139,6 +184,8 @@ for m in possible_ms:
 
 
 get_y(0.3, 1.7, 6)
+
+# 3.5
 
 # Our model predicts that the 6cm ball will bounce 3.5m.
 
