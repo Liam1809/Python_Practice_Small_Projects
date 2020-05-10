@@ -13,3 +13,14 @@ print(sensors)
 # each key has its own value, no two keys have the same value ==> override value
 dictionary = {"key_1": "value_1", "key_1": "value_2", "key_2": "value_2"}
 print(dictionary) # {'key_1': 'value_2', 'key_2': 'value_2'}
+
+
+#  the keys can be numbers as well. For example, if we were mapping restaurant bill subtotals to the bill total after tip, a dictionary could look like:
+# subtotal_to_total = {20: 24, 10: 12, 5: 6, 15: 18}
+# Values can be any type. You can use a string, a number, a list, or even another dictionary as the value associated with a key!
+# students_in_classes = {"software design": ["Aaron", "Delila", "Samson"], "cartography": ["Christopher", "Juan", "Marco"], "philosophy": ["Frederica", "Manuel"]}
+# The list ["Aaron", "Delila", "Samson"], which is the value for the key "software design", represents the students in that class.
+
+# You can also mix and match key and value types. For example:
+
+# person = {"name": "Shuri", "age": 18, "siblings": ["T'Chaka", "Ramonda"]}
