@@ -24,3 +24,34 @@ print(dictionary) # {'key_1': 'value_2', 'key_2': 'value_2'}
 # You can also mix and match key and value types. For example:
 
 # person = {"name": "Shuri", "age": 18, "siblings": ["T'Chaka", "Ramonda"]}
+
+# You can create an empty dictionary using either of the two methods shown here.
+
+# locations = {}
+# # OR
+# locations = dict()
+# To add values to the dictionary you can use the index syntax (square brackets) or call the update() function on the dictionary and pass data to be populated into the dictionary. The update method can be used to populate multiple key/values to the dictionary. The syntax for these is shown below.
+
+# locations['Paris'] = 100
+# locations.update({"London": 75})
+# locations.update({"New York": 83, "Vancouver" : 110})
+
+# print(locations)
+# # {'Paris': 100, 'London': 75, 'New York': 83, 'Vancouver': 110}
+
+# We can have a list or a dictionary as a value of an item in a dictionary, but we cannot use these data types as keys of the dictionary. If we try to, we will get a TypeError. For example:
+
+# powers = {[1, 2, 4, 8, 16]: 2, [1, 3, 9, 27, 81]: 3}
+# will yield:
+
+# TypeError: unhashable type: 'list'
+# The word “unhashable” in this context means that this ‘list’ is an object that can be changed. Dictionaries in Python rely on each key having a hash value, a specific identifier for the key. If the key can change, that hash value would not be reliable. So the keys must always be unchangeable, hashable data types, like numbers or strings.
+
+# a tuple is a hashable value and can be used as a dictionary key. A tuple would be useful as a key when storing values associated with a grid or some other coordinate type system. The following code example shows a dictionary with keys representing a simple x,y grid system.
+
+coordinates = { (0,0) : 100, (1,1) : 200}
+coordinates[(1,0)] = 150
+coordinates[(0,1)] = 125
+
+print(coordinates)
+# {(0, 0): 100, (1, 1): 200, (1, 0): 150, (0, 1): 125}
