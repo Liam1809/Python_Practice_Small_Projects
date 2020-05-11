@@ -291,3 +291,11 @@ for number in num_exercises.values():
 
 print(total_exercises)
 print(list(num_exercises.values()))
+
+cities = {"Los Angeles": 3971883,
+          "San Diego": 1394928,
+          "San Jose": 1026908}
+
+print(sum(cities.values()))
+print(max(cities.values()))
+print(min(cities.values()))
