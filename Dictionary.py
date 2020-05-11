@@ -299,3 +299,45 @@ cities = {"Los Angeles": 3971883,
 print(sum(cities.values()))
 print(max(cities.values()))
 print(min(cities.values()))
+
+# Get All Items
+# You can get both the keys and the values with the .items() method. Like .keys() and .values(), it returns a dict_list object. Each element of the dict_list returned by .items() is a tuple consisting of:
+
+# (key, value)
+# so to iterate through, you can use this syntax:
+
+# biggest_brands = {"Apple": 184, "Google": 141.7, "Microsoft": 80, "Coca-Cola": 69.7, "Amazon": 64.8}
+
+# for company, value in biggest_brands.items():
+#   print(company + " has a value of " + str(value) + " billion dollars. ")
+# which would yield this output:
+
+# Apple has a value of 184 billion dollars.
+# Google has a value of 141.7 billion dollars.
+# Microsoft has a value of 80 billion dollars.
+# Coca-Cola has a value of 69.7 billion dollars.
+# Amazon has a value of 64.8 billion dollars.
+
+pct_women_in_occupation = {"CEO": 28, "Engineering Manager": 9, "Pharmacist": 58, "Physician": 40, "Lawyer": 37, "Aerospace Engineer": 9}
+
+for occupation, age in pct_women_in_occupation.items():
+  print("Women make up " +  str(age)  + " percent of " + occupation + "s")
+  
+letters = { "A": 10, "B": 20, "C": 30, "D": 40 }
+# access tuple data 
+for data in letters.items():
+    print(data[0])
+    print(data[1])
+    
+import random
+tarot = { 1:	"The Magician", 2:	"The High Priestess", 3:	"The Empress", 4:	"The Emperor", 5:	"The Hierophant", 6:	"The Lovers", 7:	"The Chariot", 8:	"Strength", 9:	"The Hermit", 10:	"Wheel of Fortune", 11:	"Justice", 12:	"The Hanged Man", 13:	"Death", 14:	"Temperance", 15:	"The Devil", 16:	"The Tower", 17:	"The Star", 18:	"The Moon", 19:	"The Sun", 20:	"Judgement", 21:	"The World", 22: "The Fool"}
+
+#empty dict
+spread = {}
+value_tarot = list(tarot.keys())
+# print(value_tarot)
+for element in ["past", "present", "future"]:
+   spread[element] = tarot.pop(random.choice(value_tarot))
+# display
+for key, value in spread.items():
+  print("Your {key} is the {value} card.".format(key = key, value = value))
