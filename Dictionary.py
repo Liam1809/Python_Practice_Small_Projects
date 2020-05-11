@@ -155,3 +155,14 @@ plays.update({"Respect" : 94})
 library = {"The Best Songs" : plays, "Sunday Feelings" : {}}
 
 print(library)
+
+
+# Try/Except KeyError
+caffeine_level = {"espresso": 64, "chai": 40, "decaf": 0, "drip": 120}
+# caffeine_level["matcha"] = 30
+try:
+  print(caffeine_level["matcha"])
+except KeyError as key:
+  print("Unknown "+ str(key) + " Caffeine Level")
+  
+  
