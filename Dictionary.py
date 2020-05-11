@@ -223,3 +223,43 @@ health_points += available_items.pop("power stew", 0)
 health_points += available_items.pop("mystic bread", 0)
 print(available_items)
 print(health_points)
+
+# Get All Keys
+# Sometimes we want to operate on all of the keys in a dictionary. For example, if we have a dictionary of students in a math class and their grades:
+
+# test_scores = {"Grace":[80, 72, 90], "Jeffrey":[88, 68, 81], "Sylvia":[80, 82, 84], "Pedro":[98, 96, 95], "Martin":[78, 80, 78], "Dina":[64, 60, 75]}
+# We want to get a roster of the students in the class, without including their grades. We can do this with the built-in list() function:
+
+# >>> list(test_scores)
+# ["Grace", "Jeffrey", "Sylvia", "Pedro", "Martin", "Dina"]
+# Dictionaries also have a .keys() method that returns a dict_keys object. A dict_keys object is a view object, which provides a look at the current state of the dicitonary, without the user being able to modify anything. The dict_keys object returned by .keys() is a set of the keys in the dictionary. You cannot add or remove elements from a dict_keys object, but it can be used in the place of a list for iteration:
+
+# for student in test_scores.keys():
+#   print(student)
+# will yield:
+
+# "Grace"
+# "Jeffrey"
+# "Sylvia"
+# "Pedro"
+# "Martin"
+# "Dina"
+
+# The main diff is that .keys() method is a view of the dictionary object. That means when you update the dictionary, the object dict_keys will shows the updated value.
+
+# If you use the list then the list will create a snapshot of keys present at the time of assignment and it will not be in sync with dictionary updates.
+
+# Ex:
+
+user_ids = {"teraCoder": 100019, "pythonGuy": 182921, "samTheJavaMaam": 123112, "lyleLoop": 102931, "keysmithKeith": 129384}
+num_exercises = {"functions": 10, "syntax": 13, "control flow": 15, "loops": 22, "lists": 19, "classes": 18, "dictionaries": 18}
+users = user_ids.keys()
+lessons = num_exercises.keys()
+lesson_lst = list(num_exercises)
+print(users)
+print(lessons)
+print(lesson_lst)
+num_exercises.update({"exception":3})
+print(lessons)
+print(lesson_lst)
+
