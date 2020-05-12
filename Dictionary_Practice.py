@@ -93,3 +93,75 @@ def word_length_dictionary(words):
 # should print {"apple":5, "dog": 3, "cat":3}
 # print(word_length_dictionary(["a", ""]))
 # should print {"a": 1, "": 0}
+
+
+# Write a function named frequency_dictionary that takes a list of elements named words as a parameter. The function should return a dictionary containing the frequency of each element in words.
+# Write your frequency_dictionary function here:
+def frequency_dictionary(words):
+  return {word : words.count(word) for word in words}
+  # empty_dict = {}
+  # for word in words:
+  #     if not word in empty_dict.keys():
+  #        empty_dict[word] = 1
+  #     else:   
+  #        empty_dict[word] += 1
+  # return empty_dict
+
+# Uncomment these function calls to test your  function:
+# print(frequency_dictionary(["apple", "apple", "cat", 1]))
+# should print {"apple":2, "cat":1, 1:1}
+# print(frequency_dictionary([0,0,0,0,0]))
+# should print {0:5}
+
+# Create a function named unique_values that takes a dictionary named my_dictionary as a parameter. The function should return the number of unique values in the dictionary.
+# Write your unique_values function here:
+def unique_values(my_dictionary):
+  # empty_lst = []
+  # for value in my_dictionary.values():
+  #   if value not in empty_lst:
+  #     empty_lst.append(value)
+  # return len(empty_lst)
+  return len(list(dict.fromkeys(my_dictionary.values())))
+
+# The fromkeys() method returns a dictionary with the specified keys and the specified value.
+# x = ('key1', 'key2', 'key3')
+# y = 0
+# thisdict = dict.fromkeys(x, y)
+# print(thisdict)
+# ['key1': 0, 'key2': 0, 'key3': 0]
+
+# x = ('key1', 'key2', 'key3')
+# thisdict = dict.fromkeys(x)
+# print(thisdict)
+# ['key1': None, 'key2': None, 'key3': None]
+
+# Uncomment these function calls to test your  function:
+# print(unique_values({0:3, 1:1, 4:1, 5:3}))
+# should print 2
+# print(unique_values({0:3, 1:3, 4:3, 5:3}))
+# should print 1
+
+# Create a function named count_first_letter that takes a dictionary named names as a parameter. names should be a dictionary where the key is a last name and the value is a list of first names. For example, the dictionary might look like this:
+
+# names = {"Stark": ["Ned", "Robb", "Sansa"], "Snow" : ["Jon"], "Lannister": ["Jaime", "Cersei", "Tywin"]}
+# The function should return a new dictionary where each key is the first letter of a last name, and the value is the number of people whose last name begins with that letter.
+
+# So in example above, the function would return:
+
+# {"S" : 4, "L": 3}
+
+# Write your count_first_letter function here:
+def count_first_letter(names):
+  empty_dict = {}
+  for key, value in names.items():
+    first = key[0]
+    if first not in empty_dict:
+      empty_dict[first] = len(value)
+    else:
+      empty_dict[first] += len(value)
+  return empty_dict
+# Uncomment these function calls to test your  function:
+# print(count_first_letter({"Stark": ["Ned", "Robb", "Sansa"], "Snow" : ["Jon"], "Lannister": ["Jaime", "Cersei", "Tywin"]}))
+# should print {"S": 4, "L": 3}
+# print(count_first_letter({"Stark": ["Ned", "Robb", "Sansa"], "Snow" : ["Jon"], "Sannister": ["Jaime", "Cersei", "Tywin"]}))
+# should print {"S": 7}
