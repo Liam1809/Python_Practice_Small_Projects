@@ -12,7 +12,8 @@ letter_to_points[" "] = 0
 
 def score_word(word):
   point_total = 0
-  for letter in word:
+  # handdle lowercase inputs
+  for letter in word.upper():
     point_total += letter_to_points.get(letter, 0)
   return point_total
 # Testing
@@ -20,3 +21,16 @@ def score_word(word):
 # print(brownie_points)
 
 # score a Game
+# start here
+player_to_words = {"player1" : ["blue", "TENNIS", "EXIT"], "wordNerd" : ["eartH", "eyes", "MACHINE"], "Lexi Con" : ["ERASER", "BELLY", "HUSKY"], "Prof Reader" : ["zaP", "COMA", "PREIOD"]}
+
+
+def update_point_totals(dict):
+  #empty dict
+  player_to_points = {}
+  for player,words in dict.items():
+       player_points = 0
+       for word in words:
+           player_points += score_word(word)
+       player_to_points[player] = player_points
+  return player_to_points
