@@ -341,3 +341,4 @@ for element in ["past", "present", "future"]:
 # display
 for key, value in spread.items():
   print("Your {key} is the {value} card.".format(key = key, value = value))
+
