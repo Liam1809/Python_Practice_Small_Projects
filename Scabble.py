@@ -34,3 +34,11 @@ def update_point_totals(dict):
            player_points += score_word(word)
        player_to_points[player] = player_points
   return player_to_points
+
+# print(update_point_totals(player_to_words))
+
+# a function that would take in a player and a word, and add that word to the list of words they’ve played
+def play_word(player, word):
+    player_to_words[player].append(word)
+    return player_to_words
+# print(play_word("player1", "DARK"))
