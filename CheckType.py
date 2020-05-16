@@ -24,3 +24,20 @@ print(type(mydict))
 # <class 'dict'>
 print(type(myobj))
 # <class '__main__.TestClass'>
+
+# The type() command returns the namespace and class for the object provided. For classes defined in the local file, the namespace will be reported as __main__. For classes imported from other modules, the namespace reported will be the same as the module. The following code example shows, the results from type() on objects created from two different modules.
+
+from collections import OrderedDict
+
+mycoll = OrderedDict()
+
+print(type(mycoll))
+# <class 'collections.OrderedDict'>
+
+
+from calendar import Calendar
+
+mycal = Calendar()
+
+print(type(mycal))
+# <class 'calendar.Calendar'>
