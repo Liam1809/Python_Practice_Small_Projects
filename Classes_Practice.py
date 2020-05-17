@@ -1,3 +1,4 @@
+# Methods with Arguments
 class Circle:
   pi = 3.14
   def area(self, radius):
@@ -12,3 +13,13 @@ round_room_area = circle.area(11460/2)
 # print(pizza_area)
 # print(teaching_table_area)
 # print(round_room_area)
+
+# Constructor
+class Circle:
+  pi = 3.14
+  
+  # Add constructor here:
+  def __init__(self, diameter):
+    print("New circle with diameter: {}".format(diameter))
+  
+teaching_table = Circle(36)
