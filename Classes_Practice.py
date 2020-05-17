@@ -53,6 +53,9 @@ class Circle:
     print("Creating circle with diameter {d}".format(d=diameter))
     # Add assignment for self.radius here:
     self.radius = diameter/2
+  # string representation 
+  def __repr__(self):
+        return "Circle with radius {radius}".format(radius = self.radius)
     # method
   def circumference(self):
     return 2 * self.pi * self.radius

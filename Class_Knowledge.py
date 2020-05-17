@@ -230,3 +230,87 @@
 # Above we define our secure() method to take just the one required argument, self. We access both the class variable self.secure_prefix and the instance variable self.url to return a secure URL.
 
 # This is the strength of writing object-oriented programs. We can write our classes to structure the data that we need and write methods that will interact with that data in a meaningful way.
+
+# Everything is an Object
+# Attributes can be added to user-defined objects after instantiation, so it’s possible for an object to have some attributes that are not explicitly defined in an object’s constructor. We can use the dir() function to investigate an object’s attributes at runtime. dir() is short for directory and offers an organized presentation of object attributes.
+
+# class FakeDict:
+#   pass
+
+# fake_dict = FakeDict()
+# fake_dict.attribute = "Cool"
+
+# dir(fake_dict)
+# # Prints ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'attribute']
+# That’s certainly a lot more attributes than we defined! Python automatically adds a number of attributes to all objects that get created. These internal attributes are usually indicated by double-underscores. But sure enough, attribute is in that list.
+
+# Do you remember being able to use type() on Python’s native data types? This is because they are also objects in Python. Their classes are int, float, str, list, and dict. These Python classes have special syntax for their instantiation, 1, 1.0, "hello", [], and {} specifically. But these instances are still full-blown objects to Python.
+
+# fun_list = [10, "string", {'abc': True}]
+
+# type(fun_list)
+# # Prints <class 'list'>
+
+# dir(fun_list)
+# # Prints ['__add__', '__class__', [...], 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+# Above we define a new list. We check it’s type and see that’s an instantiation of class list. We use dir() to explore its attributes, and it gives us a large number of internal Python dunder attributes, but, afterward, we get the usual list methods.
+
+# you can use dir() to examine a class in addition to calling it on an object of a class. In the following code example, you can see that the dir() call on the object of class Examine shows the instance variable created in the object while the call for the class does not.
+
+# class Examine:
+
+#     class_var = "This is a class variable"
+
+#     def __init__(self):
+#         self.inst_var = "This is an instance variable"
+
+
+# myobj = Examine()
+
+# print(dir(Examine))
+# # OUTPUTS: ['__doc__', '__init__', '__module__', 'class_var']
+
+# print(dir(myobj))
+# # OUTPUTS: ['__doc__', '__init__', '__module__', 'class_var', 'inst_var']
+
+# String Representation
+
+# One of the first things we learn as programmers is how to print out information that we need for debugging. Unfortunately, when we print out an object we get a default representation that seems fairly useless.
+
+# class Employee():
+#   def __init__(self, name):
+#     self.name = name
+
+# argus = Employee("Argus Filch")
+# print(argus)
+# # prints "<__main__.Employee object at 0x104e88390>"
+# This default string representation gives us some information, like where the class is defined and our computer’s memory address where this object is stored, but is usually not useful information to have when we are trying to debug our code.
+
+# We learned about the dunder method __init__. Now, we will learn another dunder method called __repr__. This is a method we can use to tell Python what we want the string representation of the class to be. __repr__ can only have one parameter, self, and must return a string.
+
+# In our Employee class above, we have an instance variable called name that should be unique enough to be useful when we’re printing out an instance of the Employee class.
+
+# class Employee():
+#   def __init__(self, name):
+#     self.name = name
+
+#   def __repr__(self):
+#     return self.name
+
+# argus = Employee("Argus Filch")
+# print(argus)
+# # prints "Argus Filch"
+# We implemented the __repr__ method and had it return the .name attribute of the object. When we printed the object out it simply printed the .name of the object! Cool!
+
+# In a sense, instance.__repr__() is a getter, only it gets everything, and the expected return value will be a string representation of the data points of the instance as initialized and or modified.
+
+# The operative phrase above was return value. Getters don’t do things; they return things.
+
+# class Foo(object):
+#   def __init__(self, foo):
+#     self.foo = foo
+#   def __repr__(self):
+#     return "foo: {}".format(self.foo)
+
+# foo = Foo('foo')
+# print (foo)
