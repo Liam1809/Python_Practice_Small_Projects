@@ -23,3 +23,15 @@ class Circle:
     print("New circle with diameter: {}".format(diameter))
   
 teaching_table = Circle(36)
+
+# Instance Variables
+class Store:
+      pass
+
+alternative_rocks = Store()
+isabelles_ices = Store()
+
+alternative_rocks.store_name = "Alternative Rocks"
+isabelles_ices.store_name = "Isabelle's Ices"
+
+print(alternative_rocks.store_name)

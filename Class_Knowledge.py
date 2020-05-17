@@ -162,3 +162,8 @@
 # working_string = "{} {}".format(fake_dict1.fake_key, fake_dict2.fake_key)
 # print(working_string)
 # # prints "This works! This too!"
+
+# CLASS VARIABLES:
+# A class variable needs the "creating a variable step " as you call it, in the intended block of the Class. If it is called later by any object using the syntax object.variable, it will yield the same data for every instance/object of the class.
+# INSTANCE VARIABLES:
+# Although an instance variable uses the same attribute notation used for accessing class variables (object.variable ) it does so in order to assign data to the object. The data now is not shared by all instances of the class, they re specific to the object they are attached to.
