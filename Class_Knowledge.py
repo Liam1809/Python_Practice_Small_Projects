@@ -314,3 +314,66 @@
 
 # foo = Foo('foo')
 # print (foo)
+
+class Student:
+      # constructor
+  def __init__(self, name, year):
+    self.name = name
+    self.year = year
+    self.grades = []
+  # string repr
+  def __repr__(self):
+      return """Student name : {name}\nAge : {year} years old\nAverage grade : {average}/100
+             """.format(name = self.name, year = self.year, average = self.average)
+  
+  def add_grade(self, grade):
+    if type(grade) == Grade:
+      self.grades.append((grade))
+    else:
+      pass
+
+  def get_average(self):
+    sum = 0
+    for grade in self.grades:
+      sum += grade.score
+    self.average = round(sum/len(self.grades),2)
+    
+class Grade:
+  minimum_passing = 65
+  # constructor
+  def __init__(self, score):
+    self.score = score
+  # string repr
+  def __repr__(self):
+    return str(self.score)
+
+  def is_passing(self):
+    if self.score >= self.minimum_passing:
+      return "Passed with {score}".format(score = self.score)
+    else:
+      return "Failed with {score}".format(score = self.score)
+
+# instances of Student
+roger = Student("Roger van der Weyden", 10)
+sandro = Student("Sandro Botticelli", 12)
+pieter = Student("Pieter Bruegel the Elder", 8)
+
+# instances of Grade
+pieter_grade1 = Grade(100)
+pieter_grade2 = Grade(80)
+pieter_grade3 = Grade(64)
+
+# add score to pieter
+pieter.add_grade(pieter_grade1)
+pieter.add_grade(pieter_grade2)
+pieter.add_grade(pieter_grade2)
+
+# print(pieter_grade1)
+# print(pieter_grade2)
+# print(pieter_grade3)
+# print(pieter_grade1.is_passing())
+# print(pieter_grade2.is_passing())
+# print(pieter_grade3.is_passing())
+
+pieter.get_average()
+print(pieter)
