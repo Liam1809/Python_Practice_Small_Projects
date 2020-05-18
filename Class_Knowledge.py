@@ -349,9 +349,9 @@ class Grade:
 
   def is_passing(self):
     if self.score >= self.minimum_passing:
-      return "Passed with {score}".format(score = self.score)
+      return "{score}/100 : Passed".format(score = self.score)
     else:
-      return "Failed with {score}".format(score = self.score)
+      return "{score}/100 : Failed".format(score = self.score)
 
 # instances of Student
 roger = Student("Roger van der Weyden", 10)
@@ -371,9 +371,11 @@ pieter.add_grade(pieter_grade2)
 # print(pieter_grade1)
 # print(pieter_grade2)
 # print(pieter_grade3)
-# print(pieter_grade1.is_passing())
-# print(pieter_grade2.is_passing())
-# print(pieter_grade3.is_passing())
+
+# check score if it passs
+print(pieter_grade1.is_passing())
+print(pieter_grade2.is_passing())
+print(pieter_grade3.is_passing())
 
 pieter.get_average()
 print(pieter)
