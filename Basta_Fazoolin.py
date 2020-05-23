@@ -65,3 +65,40 @@ for key, value in early_bird_order.items():
 # total price for early-bird order
 print(early_bird.calculate_bill(early_bird_order))
 
+# Basta Fazoolin’ with my Heart has seen tremendous success with the family market, which is fantastic because when you’re at Basta Fazoolin’ with my Heart with family, that’s great!
+
+# We’ve decided to create more than one restaurant to offer our fantastic menus, services, and ambience around the country.
+class Franchise():
+  # constructor
+  def __init__(self, address, menus):
+    self.address = address
+    self.menus = menus
+  # string rep
+  def __repr__(self):
+    return self.address
+
+  def available_menus(self, time):
+    avalable_menus = []
+    for menu in menus:
+      if time in range(menu.start_time, menu.end_time + 1):
+        avalable_menus.append(menu)
+    return avalable_menus
+     
+# a list of menu
+menus = [brunch, early_bird, dinner, kids]
+# instances
+flagship_store = Franchise("1232 West End Road", menus)
+new_installment = Franchise("12 East Mulberry Street", menus)
+#
+print("Flagship store is located at " + str(flagship_store))
+print("New installment is located at " + str(new_installment))
+
+# at flagship store
+# available menus at 12 noon
+print("- available menus")
+print(*flagship_store.available_menus(1200), sep = "\n")
+# at new_installment
+# available menus at 5pm
+print("- available menus")
+print(*new_installment.available_menus(1700), sep = "\n")
+
