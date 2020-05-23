@@ -102,3 +102,29 @@ print(*flagship_store.available_menus(1200), sep = "\n")
 print("- available menus")
 print(*new_installment.available_menus(1700), sep = "\n")
 
+# Since we’ve been so successful building out a branded chain of restaurants, we’ve decided to diversify. We’re going to create a restaurant that sells arepas!
+class Business():
+  # constructor
+  def __init__(self, name, franchises):
+    self.name = name
+    self.franchises = franchises
+    
+# instance of Business
+first_business = Business("Basta Fazoolin' with my Heart", [flagship_store, new_installment])
+
+print("***New Business***")
+# arepas_menu
+arepas_menu = {
+  'arepa pabellon': 7.00, 'pernil arepa': 8.50, 'guayanes arepa': 8.00, 'jamon arepa': 7.50
+}
+# instance of Menu
+Arepa = Menu("Take a’ Arepa", arepas_menu, 1000, 2000)
+# print("new menu")
+# print(Arepa)
+# append new menu to the list of menus
+menus.append(Arepa)
+# instance of Franchise
+arepas_place = Franchise("189 Fitzgerald Avenue", menus)
+# instance of Business class
+arepa = Business("Take a' Arepa",[arepas_place])
+print(arepa.franchises[0].menus[-1])
