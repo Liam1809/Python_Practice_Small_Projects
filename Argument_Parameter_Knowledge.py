@@ -23,3 +23,32 @@
 # Some of this terminology can be used inconsistently between schools, people, and businesses. Some people don’t differentiate between “parameter” and “argument” when speaking. It’s useful here because we’re going to be looking at a lot of behavior that looks very similar in a function definition and a function call, but will be subtly different. But the distinction is sometimes unnecessary, so don’t get too hung up if something is called a “parameter” that should be an “argument” or vice versa.
 
 
+# None: It's Nothing!
+# How do you define a variable that you can’t assign a value to yet? You use None.
+
+# None is a special value in Python. It is unique (there can’t be two different Nones) and immutable (you can’t update None or assign new attributes to it).
+
+# none_var = None
+# if none_var:
+#   print("Hello!")
+# else:
+#   print("Goodbye")
+
+# # Prints "Goodbye"
+# None is falsy, meaning that it evaluates to False in an if statement, which is why the above code prints “Goodbye”. None is also unique, which means that you can test if something is None using the is keyword.
+
+# # first we define session_id as None
+# session_id = None
+
+# if session_id is None:
+#   print("session ID is None!")
+#   # this prints out "session ID is None!"
+
+# # we can assign something to session_id
+# if active_session:
+#   session_id = active_session.id
+
+# # but if there's no active_session, we don't send sensitive data
+# if session_id is not None:
+#   send_sensitive_data(session_id)
+# Above we initialize our session_id to None, then set our session_id if there is an active session. Since session_id could either be None we check if session_id is None before sending our sensitive data.
