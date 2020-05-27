@@ -55,3 +55,19 @@ add_attraction("São Paulo, Brazil", ["Pátio do Colégio", ["historical site"]]
 add_attraction("Cairo, Egypt", ["Pyramids of Giza", ["monument", "historical site"]])
 add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
 # print(attractions)
+
+# Finding the Best Places to Go
+# We want to be able to help our traveler’s find the most interesting places in a new city for them. In order to do that we need to match their interests with the possible locations in a city.
+def find_attractions(destination, interests):
+  destination_index = get_destination_index(destination)
+  attractions_in_city = attractions[destination_index]
+  attractions_with_interest = []
+  for attraction in attractions_in_city:
+    possible_attraction = attraction
+    attraction_tags = attraction[1]
+    for interest in interests:
+      if interest in attraction_tags:
+        attractions_with_interest.append(possible_attraction[0])
+  return attractions_with_interest
+la_arts = find_attractions("Los Angeles, USA", ['art'])
+# print(la_arts)
