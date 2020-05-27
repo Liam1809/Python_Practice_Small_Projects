@@ -21,3 +21,23 @@ damages = ['Damages not recorded', '100M', 'Damages not recorded', '40M', '27.9M
 
 # deaths for each hurricane
 deaths = [90,4000,16,3103,179,184,408,682,5,1023,43,319,688,259,37,11,2068,269,318,107,65,19325,51,124,17,1836,125,87,45,133,603,138,3057,74]
+
+# Hurricanes, also known as cyclones or typhoons, are one of the most powerful forces of nature on Earth. Due to climate change caused by human activity, the number and intensity of hurricanes has risen, calling for better preparation by the many communities that are devastated by them. As a concerned environmentalist, you want to look at data about the most powerful hurricanes that have occurred.
+
+# Begin by looking at the damages list. The list contains strings representing the total cost in USD($) caused by 34 category 5 hurricanes (wind speeds ≥ 157 mph (252 km/h )) in the Atlantic region. For some of the hurricanes, damage data was not recorded ("Damages not recorded"), while the rest are written in the format "Prefix-B/M", where B stands for billions (1000000000) and M stands for millions (1000000).
+# write your update damages function here:
+conversion = {"M": 1000000,
+              "B": 1000000000} 
+
+def update_damage(damages_list, conversion):
+    empty_lst = []
+    for damage in damages_list:
+       if damage != "Damages not recorded":
+         if "M" in damage:
+           empty_lst.append(conversion.get("M") * float(damage.strip("M")))
+         elif "B" in damage:
+           empty_lst.append(conversion.get("B") * float(damage.strip("B")))
+       else:
+          empty_lst.append(damage)
+    return empty_lst
+# print(update_damage(damages, conversion))
