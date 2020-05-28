@@ -105,7 +105,7 @@ def count_affected_areas(areas_affected):
   return areas_dict
     
 areas_affected_dict = {}
-areas_affected_dict = count_affected_areas(areas_affected)
+areas_affected_dict =count_affected_areas(areas_affected)
 # print(areas_affected_dict)
 
 # write your find most affected area function here:
@@ -119,5 +119,23 @@ def most_affected_area(areas_affected_dict):
       max_times_area = value
   most_affected_areas[max_area] = max_times_area
   return most_affected_areas
+# print(hurricanes)
+print("the area affected by the most hurricanes, and how often it was hit.")
+print(most_affected_area(areas_affected_dict))
 
-# print(most_affected_area(areas_affected_dict))
+# write your greatest number of deaths function here:
+def greatest_deaths(hurricanes):
+  greatest_deaths_dict = {}
+  greatest_hurricane = ''
+  greatest_deaths = 0
+  for values in hurricanes.values():
+    for key, value in values.items():
+      if key == "Deaths":
+        if greatest_deaths < value:
+          greatest_deaths = value
+          greatest_hurricane = values.get("Name")
+  greatest_deaths_dict[greatest_hurricane] = greatest_deaths
+  return greatest_deaths_dict
+
+print("the hurricane that caused the greatest number of deaths, and how many deaths it caused.")
+print(greatest_deaths(hurricanes))
