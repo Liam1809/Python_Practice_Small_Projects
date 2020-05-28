@@ -87,3 +87,23 @@ def construct_hurricane_by_year(names, months, years, max_sustained_winds, areas
 
 construct_hurricane_by_year(names, months,years, max_sustained_winds, areas_affected, damages, deaths)
 # print(hurricanes)
+
+# You believe that knowing how often each of the areas of the Atlantic are affected by these strong hurricanes is important for making preparations for future hurricanes.
+
+# Write a function that counts how often each area is listed as an affected area of a hurricane. Store and return the results in a dictionary where the keys are the affected areas and the values are counts of how many times the areas were affected.
+# write your count affected areas function here:
+def count_affected_areas(areas_affected):
+  # empty dict
+  areas_dict = {}
+
+  for areas in areas_affected:
+    for area in areas:
+      if area not in areas_dict.keys():
+        areas_dict[area] = 1
+      else:
+        areas_dict[area] += 1
+  return areas_dict
+    
+areas_affected_dict = {}
+areas_affected_dict = count_affected_areas(areas_affected)
+# print(areas_affected_dict)
