@@ -69,3 +69,21 @@ def construct_hurricane_dict(names, months, years, max_sustained_winds, areas_af
 
 construct_hurricane_dict(names, months,years, max_sustained_winds, areas_affected, damages, deaths)
 # print(hurricanes)
+
+# In addition to organizing the hurricanes in a dictionary with names as the key, you want to be able to organize the hurricanes by year.
+
+# Write a function that converts the current dictionary of hurricanes to a new dictionary, where the keys are years and the values are lists containing a dictionary for each hurricane that occurred in that year.
+
+# For example, the key 1932 would yield the value: [{'Name': 'Bahamas', 'Month': 'September', 'Year': 1932, 'Max Sustained Wind': 160, 'Areas Affected': ['The Bahamas', 'Northeastern United States'], 'Damage': 'Damages not recorded', 'Deaths': 16}, {'Name': 'Cuba II', 'Month': 'November', 'Year': 1932, 'Max Sustained Wind': 175, 'Areas Affected': ['Lesser Antilles', 'Jamaica', 'Cayman Islands', 'Cuba', 'The Bahamas', 'Bermuda'], 'Damage': 40000000.0, 'Deaths': 3103}].
+# write your construct hurricane by year dictionary function here:
+def construct_hurricane_by_year(names, months, years, max_sustained_winds, areas_affected, damages, deaths):
+
+  for key in list(hurricanes.keys()):
+    hurricanes.pop(key)
+  
+  for index in range(len(years)):
+    hurricanes.update({years[index] : {'Name' : names[index], 'Month' : months[index], 'Year' : years[index], 'Max Sustained Wind' : max_sustained_winds[index], 'Areas Affected' : areas_affected[index], 'Damage' : damages[index], 'Deaths': deaths[index]}})
+  # return new_dict
+
+construct_hurricane_by_year(names, months,years, max_sustained_winds, areas_affected, damages, deaths)
+# print(hurricanes)
