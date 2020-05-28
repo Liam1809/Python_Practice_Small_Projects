@@ -107,3 +107,17 @@ def count_affected_areas(areas_affected):
 areas_affected_dict = {}
 areas_affected_dict = count_affected_areas(areas_affected)
 # print(areas_affected_dict)
+
+# write your find most affected area function here:
+def most_affected_area(areas_affected_dict):
+  most_affected_areas = {}
+  max_area = 'Central America'
+  max_times_area = 0
+  for key, value in areas_affected_dict.items():
+    if max_times_area < value:
+      max_area = key
+      max_times_area = value
+  most_affected_areas[max_area] = max_times_area
+  return most_affected_areas
+
+# print(most_affected_area(areas_affected_dict))
