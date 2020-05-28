@@ -349,3 +349,17 @@ for key, value in spread.items():
 #       New_dict.pop(key)
 # will get RuntimeError: dictionary changed size during iteration
 
+# Ways to delete all keys in dictionary
+
+# 1 get all keys from a dictionary and parse it into a list 
+New_dict = {"Math" : 10, "English" : 8, "Physics" : 9}
+dict_lst = list(New_dict.keys())
+for key in dict_lst:
+      New_dict.pop(key)
+print(New_dict)
+# should print {}
+
+# 2 Reinitialise that dictionary
+New_dict_1 = {"Math" : 10, "English" : 8, "Physics" : 9}
+New_dict_1 = {}
+print(New_dict_1)
