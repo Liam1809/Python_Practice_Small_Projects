@@ -342,3 +342,10 @@ for element in ["past", "present", "future"]:
 for key, value in spread.items():
   print("Your {key} is the {value} card.".format(key = key, value = value))
 
+
+# WE CANNOT POP EACH KEY IN A DICTIONARY DURING ITERATION SINCE WE WILL GET RuntimeError: dictionary changed size during iteration
+# New_dict = {"Math" : 10, "English" : 8, "Physics" : 9}
+# for key in New_dict.keys():
+#       New_dict.pop(key)
+# will get RuntimeError: dictionary changed size during iteration
+
