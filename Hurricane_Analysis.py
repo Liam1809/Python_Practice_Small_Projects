@@ -205,3 +205,51 @@ def greatest_damage(hurricanes):
 
 # print("the hurricane that caused the greatest damage, and how costly it was")
 # print(greatest_damage(hurricanes))
+
+# Write a function that rates hurricanes on a damage scale according to the following ratings, where the key is the rating and the value is the upper bound of damage for that rating.
+
+# damage_scale = {0: 0,
+#                 1: 100000000,
+#                 2: 1000000000,
+#                 3: 10000000000,
+#                 4: 50000000000}
+# For example, a hurricane with a 1 damage rating would have resulted in damages greater than 0 USD but less than or equal to 100000000 USD. A hurricane with a 5 damage rating would have resulted in damages greater than 50000000000 USD (talk about a lot of money).
+
+# Store the hurricanes in a new dictionary where the keys are damage ratings and the values are lists containing a dictionary for each hurricane that falls into that damage rating.
+damage_scale = {0: 0,
+                1: 100000000,
+                2: 1000000000,
+                3: 10000000000,
+                4: 50000000000}
+# write your catgeorize by damage function here:
+def ranking_damage(hurricanes, damage_scale):
+  damage_dict = {i : [] for i in range(6)}
+  # {0: [], 1: [], 2: [], 3: [], 4: [], 5: []}
+  # print(mortality_dict)
+  for values in hurricanes.values():
+    for key, value in values.items():
+      if key == "Damage" and value != 'Damages not recorded':
+        # ranking 1
+        if value > damage_scale.get(0) and value <= damage_scale.get(1):
+          damage_dict.get(1).append(values)
+        # ranking 2
+        elif value >= damage_scale.get(1) and value <=  damage_scale.get(2):
+          damage_dict.get(2).append(values)
+        # ranking 3
+        elif value >= damage_scale.get(2) and value <=  damage_scale.get(3):
+          damage_dict.get(3).append(values)
+        # ranking 4
+        elif value >= damage_scale.get(3) and value <=  damage_scale.get(4):
+          damage_dict.get(4).append(values)
+        # ranking 5
+        elif value > damage_scale.get(4):
+          damage_dict.get(5).append(values)
+        # ranking 0
+        else:
+          damage_dict.get(0).append(values)
+          
+  return damage_dict
+
+# print(hurricanes)
+# print(ranking_damage(hurricanes, damage_scale))
+
