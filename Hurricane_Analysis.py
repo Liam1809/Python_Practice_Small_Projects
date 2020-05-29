@@ -120,8 +120,8 @@ def most_affected_area(areas_affected_dict):
   most_affected_areas[max_area] = max_times_area
   return most_affected_areas
 # print(hurricanes)
-print("the area affected by the most hurricanes, and how often it was hit.")
-print(most_affected_area(areas_affected_dict))
+# print("the area affected by the most hurricanes, and how often it was hit.")
+# print(most_affected_area(areas_affected_dict))
 
 # write your greatest number of deaths function here:
 def greatest_deaths(hurricanes):
@@ -136,6 +136,52 @@ def greatest_deaths(hurricanes):
           greatest_hurricane = values.get("Name")
   greatest_deaths_dict[greatest_hurricane] = greatest_deaths
   return greatest_deaths_dict
+# print(hurricanes)
+# print("the hurricane that caused the greatest number of deaths, and how many deaths it caused.")
+# print(greatest_deaths(hurricanes))
 
-print("the hurricane that caused the greatest number of deaths, and how many deaths it caused.")
-print(greatest_deaths(hurricanes))
+# Write a function that rates hurricanes on a mortality scale according to the following ratings, where the key is the rating and the value is the upper bound of deaths for that rating.
+
+# mortality_scale = {0: 0,
+#                    1: 100,
+#                    2: 500,
+#                    3: 1000,
+#                    4: 10000}
+# For example, a hurricane with a 1 mortality rating would have resulted in greater than 0 but less than or equal to 100 deaths. A hurricane with a 5 mortality rating would have resulted in greater than 10000 deaths.
+
+# Store the hurricanes in a new dictionary where the keys are mortality ratings and the values are lists containing a dictionary for each hurricane that falls into that mortality rating.
+mortality_scale = {0: 0,
+                   1: 100,
+                   2: 500,
+                   3: 1000,
+                   4: 10000}
+# write your catgeorize by mortality function here:
+def ranking_mortality(hurricanes, mortality_scale):
+  mortality_dict = {i : [] for i in range(6)}
+  # {0: [], 1: [], 2: [], 3: [], 4: [], 5: []}
+  # print(mortality_dict)
+  for values in hurricanes.values():
+    for key, value in values.items():
+      if key == "Deaths":
+        # ranking 1
+        if value > mortality_scale.get(0) and value <= mortality_scale.get(1):
+          mortality_dict.get(1).append(values)
+        # ranking 2
+        elif value >= mortality_scale.get(1) and value <=  mortality_scale.get(2):
+          mortality_dict.get(2).append(values)
+        # ranking 3
+        elif value >= mortality_scale.get(2) and value <=  mortality_scale.get(3):
+          mortality_dict.get(3).append(values)
+        # ranking 4
+        elif value >= mortality_scale.get(3) and value <=  mortality_scale.get(4):
+          mortality_dict.get(4).append(values)
+        # ranking 5
+        elif value > mortality_scale.get(4):
+          mortality_dict.get(5).append(values)
+        # ranking 0
+        else:
+          mortality_dict.get(0).append(values)
+          
+  return mortality_dict
+# print(hurricanes)
+# print(ranking_mortality(hurricanes, mortality_scale))
