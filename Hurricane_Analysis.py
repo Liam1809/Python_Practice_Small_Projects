@@ -185,3 +185,23 @@ def ranking_mortality(hurricanes, mortality_scale):
   return mortality_dict
 # print(hurricanes)
 # print(ranking_mortality(hurricanes, mortality_scale))
+
+# write your greatest damage function here:
+def greatest_damage(hurricanes):
+  greatest_damage_dict = {}
+  greatest_hurricane = ''
+  greatest_damge = 0
+  for values in hurricanes.values():
+    for key, value in values.items():
+      
+      if key == "Damage" and value != 'Damages not recorded':
+        
+        if greatest_damge < value:
+          greatest_damge = value
+          greatest_hurricane = values.get("Name")
+  
+  greatest_damage_dict[greatest_hurricane] = greatest_damge
+  return greatest_damage_dict
+
+# print("the hurricane that caused the greatest damage, and how costly it was")
+# print(greatest_damage(hurricanes))
