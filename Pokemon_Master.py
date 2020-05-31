@@ -74,3 +74,17 @@ class Pokemon:
             print("{my_name} attacked {other_name} for {damage} damage.".format(my_name = self.name, other_name = other_pokemon.name, damage = self.level * 2))
             print("It's super effective")
             other_pokemon.lose_health(self.level * 2)
+
+
+# Three classes that are subclasses of Pokemon. Charmander is a fire type, Squirtle is a Water type, and Bulbasaur is a Grass type.
+class Charmander(Pokemon):
+    def __init__(self, level = 5):
+        super().__init__("Charmander", "Fire", level)
+
+class Squirtle(Pokemon):
+    def __init__(self, level = 5):
+        super().__init__("Squirtle", "Water", level)
+
+class Bulbasaur(Pokemon):
+    def __init__(self, level = 5):
+        super().__init__("Bulbasaur", "Grass", level)
