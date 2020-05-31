@@ -88,3 +88,12 @@ class Squirtle(Pokemon):
 class Bulbasaur(Pokemon):
     def __init__(self, level = 5):
         super().__init__("Bulbasaur", "Grass", level)
+        
+
+class Trainer:
+    # A trainer has a list of pokemon, a number of potions and a name. When the trainer gets created, the first pokemon in their list of pokemons is the active pokemon (number 0)
+    def __init__(self, pokemon_list, num_potions, name):
+        self.pokemons = pokemon_list
+        self.potions = num_potions
+        self.current_pokemon = 0
+        self.name = name
