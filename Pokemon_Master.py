@@ -119,3 +119,19 @@ class Trainer:
             else:
                 self.current_pokemon = new_active
                 print("Go {name}, it's your turn!".format(name = self.pokemons[self.current_pokemon].name))
+                
+    def use_potion(self):
+        # Uses a potion on the active pokemon, assuming you have at least one potion.
+        if self.potions > 0:
+            print("You used a potion on {name}.".format(name = self.pokemons[self.current_pokemon].name))
+            # A potion restores 20 health
+            self.pokemons[self.current_pokemon].gain_health(20)
+            self.potions -= 1
+        else:
+            print("You don't have any more potions")
+
+    def attack_other_trainer(self, other_trainer):
+        # Your current pokemon attacks the other trainer's current pokemon
+        my_pokemon = self.pokemons[self.current_pokemon]
+        their_pokemon = other_trainer.pokemons[other_trainer.current_pokemon]
+        my_pokemon.attack(their_pokemon)
