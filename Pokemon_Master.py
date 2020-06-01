@@ -135,3 +135,27 @@ class Trainer:
         my_pokemon = self.pokemons[self.current_pokemon]
         their_pokemon = other_trainer.pokemons[other_trainer.current_pokemon]
         my_pokemon.attack(their_pokemon)
+        
+    # Six pokemon are made with different levels. (If no level is given, it is level 5)
+a = Charmander(7)
+b = Squirtle()
+c = Squirtle(1)
+d = Bulbasaur(10)
+e = Charmander()
+f = Squirtle(2)
+
+
+#Two trainers are created. The first three pokemon are given to trainer 1, the second three are given to trainer 2.
+trainer_one = Trainer([a,b,c], 3, "Alex")
+trainer_two = Trainer([d,e,f], 5, "Sara")
+
+print(trainer_one)
+print(trainer_two)
+
+# Testing attacking, giving potions, and switching pokemon.
+trainer_one.attack_other_trainer(trainer_two)
+trainer_two.attack_other_trainer(trainer_one)
+trainer_two.use_potion()
+trainer_one.attack_other_trainer(trainer_two)
+trainer_two.switch_active_pokemon(0)
+trainer_two.switch_active_pokemon(1)
