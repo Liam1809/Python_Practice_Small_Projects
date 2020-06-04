@@ -89,8 +89,3 @@ moma.buy_artwork(girl_with_mandolin)
 
 print(girl_with_mandolin)
 print(veneer.show_listings())
-
-
-
-
-
